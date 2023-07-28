@@ -14,8 +14,8 @@ The project uses a range of sensors, including humidity and water sensors, and a
 
 ### NodeMCU (ESP8266) Development Board:
 The NodeMCU is a versatile development board based on the ESP8266 microcontroller. It offers built-in Wi-Fi capabilities, making it ideal for IoT applications. The NodeMCU can be programmed using Arduino IDE, Lua scripts, or other programming languages compatible with the ESP8266 platform. In the connected agriculture project, the NodeMCU acts as the brain of the system, collecting data from various sensors, including the gas sensor, and controlling the relay module to manage water supply. Its connectivity features enable it to send data to a remote server or cloud for monitoring and analysis.
-<img src="[https://i.imgur.com/PIzR3o3.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmischianti.org%2F2021%2F10%2F27%2Fnodemcu-v2-and-v2-1-high-resolution-pinout-and-specs%2F&psig=AOvVaw1KTBZJ1XAewtnoa3aLF4-9&ust=1690655721867000&source=images&cd=vfe&opi=89978449&ved=0CA4QjRxqFwoTCIDmk8KFsoADFQAAAAAdAAAAABAD)" width=30%>
-### Gas Sensor:
+
+### MQ-3 Gas Sensor:
 The gas sensor is used to detect the presence of specific gases in the environment. In the context of connected agriculture, gas sensors can be employed to monitor various gases that may affect crop health or pose risks to the farming environment. For example, certain gases may be released during chemical fertilization or pesticide usage, and their levels need to be monitored to ensure safety. Additionally, gas sensors can help detect harmful gases, such as methane or ammonia, which might indicate issues with soil health or livestock management. By integrating gas sensors with the NodeMCU, farmers can receive real-time alerts or notifications when gas levels exceed safe thresholds, enabling timely action to address potential issues.
 
 ### Soil Moisture Sensor:
@@ -35,7 +35,53 @@ The relay module is an electronic switch that allows low-power devices (like mic
 
 To get started with the project, follow the steps below:
 
-1. Clone the repository:
+### Sensor Calibration:
+1. To calibrate the YL-69 soil moisture sensor, we need to follow these steps:
+2. Collect a sample of soil from the area where the sensor will be used.
+3. Spread the soil out and let it dry completely.
+4. Weigh the dry soil sample and record the weight.
+5. Fully saturate the soil with water and let it sit for a few hours to allow the water to distribute evenly.
+6. Remove excess water from the surface of the soil and weigh the soil again.
+7. Record the weight of the fully saturated soil.
+8. Calculate the moisture content of the soil using the following formula:
+9. Moisture Content = ((Wet Weight - Dry Weight) / Dry Weight) x 100%
+10. Adjust the calibration factor in the code to match the calculated moisture content.
+11. Test the sensor by taking readings from dry soil, moist soil, and fully saturated soil to ensure that the readings are accurate and consistent. Adjust the calibration factor as necessary.
+
+### Programming Code:
+The code for this project is written using the Arduino IDE and Blynk IoT app. 
+      Follow these steps to program the Node-MCU:
+1. Open the Arduino IDE and install the Blynk library.
+2. Connect the Node-MCU to your computer using the USB cable.3. Open the Blynk app and create a new project.
+4. Add the required widgets to the app, such as the gauge widget for displaying the temperature and humidity, the level widget for the soil moisture, and the value display widget for the rain sensor.
+5. Obtain the authentication token from the app and insert it in the code.
+6. Connect the DHT11 sensor to the D5 pin of the Node-MCU, the YL-69 sensor to the A0 pin, and the rain sensor to the D0 pin.
+7. Upload the code to the Node-MCU using the Arduino IDE.
+8. Test the system by placing the sensors in the appropriate locations and checking that the readings are displayed correctly in the app.
+9. Note: The code can be modified to add additional functionality, such as turning on a pump when the soil moisture is low or sending alerts when the rain sensor detects rainfall.
+
+### Software Requirements:
+•Arduino IDE
+•Blynk app
+•Blynk library for Arduino IDE
+•Adafruit Unified Sensor library
+•DHT library for Arduino
+•PubSubClient library
+•WiFi.h library
+
+### Methodology:
+- First, the hardware setup is done by connecting the Node-MCU board with all the sensors
+and relay module using jumper wires and breadboard as per the circuit diagram.
+- Next, the Arduino IDE is installed on the computer and the required libraries are added to it.
+- Then, the code is written in Arduino IDE by including the necessary libraries and setting up the Blynk connection with the Node-MCU using Wi-Fi credentials.
+- The code is divided into different sections to handle each sensor's data separately and display it in the Blynk app.➢ For the DHT11 sensor, the code reads temperature and humidity values and sends them to the Blynk app.
+- For the YL-69 soil moisture sensor, the code reads the analog values of the sensor, converts it into percentage, and sends it to the Blynk app. It also checks if the soil moisture level is below a threshold value (38%) and turns on the relay module to water the plants automatically.
+- For the rain sensor, the code reads the digital value of the sensor and sends it to the Blynk app. It also checks if the sensor value is low, indicating rain, and sends a notification to the Blynk app.
+- For the MQ-3 alcohol gas sensor, the code reads the analog values of the sensor, converts it into PPM, and sends it to the Blynk app.
+- Finally, the code is uploaded to the Node-MCU board using the Arduino IDE and the Blynk app is used to create a dashboard to display the sensor data.
+
+
+To Clone the repository:
 
 ```bash
 git clone https://github.com/Gouenjixx/Connected-Agriculture.git
