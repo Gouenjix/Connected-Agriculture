@@ -85,4 +85,4 @@ To Clone the repository:
 
 ```bash
 git clone https://github.com/Gouenjix/Connected-Agriculture
-cd connected-agriculture
+cd Connected-Agriculture
