@@ -84,5 +84,5 @@ and relay module using jumper wires and breadboard as per the circuit diagram.
 To Clone the repository:
 
 ```bash
-git clone https://github.com/Gouenjixx/Connected-Agriculture.git
+git clone https://github.com/Gouenjix/Connected-Agriculture
 cd connected-agriculture
