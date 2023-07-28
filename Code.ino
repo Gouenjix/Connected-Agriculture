@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL3AwExpzjk"
-#define BLYNK_DEVICE_NAME "FarmAssist"
-#define BLYNK_AUTH_TOKEN "txutjfzVlmJXP5SWUeRDhbYSIqomyQ5e"
+#define BLYNK_TEMPLATE_ID "XXXXXXXXX"
+#define BLYNK_DEVICE_NAME "XXXXXXXXXXXXXXXX"
+#define BLYNK_AUTH_TOKEN "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
@@ -8,8 +8,8 @@
 #include <DHT.h>
 
 char auth[] = BLYNK_AUTH_TOKEN;
-char ssid[] = "POCO X3 Pro";
-char pass[] = "trh970uvekxqni4f";
+char ssid[] = "Wifi_SSID";
+char pass[] = "PASSWORD";
 
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
